@@ -1,0 +1,16 @@
+生成公钥和私钥  ssh-keygen -t rsa -C "76118299@qq.com"
+添加远程仓库 git remote add origin https://github.com/zgc8888/testgit.git
+推送代码  git push -u origin master ....git push origin master
+
+克隆远程仓库 git clone https://github.com/zgc8888/test2
+创建分支并切换 git checkout -b dev  (git branch dev git checkout dev)
+分支代码合并 git merge dev
+
+删除分支 git branch –d name
+
+git stash 工作现场隐藏 待修复BUG后恢复
+
+git checkout -b dev origin/dev 把远程的origin的dev分支到本地
+创建远程的origin的dev分支到本地
+
+提交修改到远程仓库 git push origin dev
