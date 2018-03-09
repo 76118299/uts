@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="bhz.uts.mapper.TradeDetailMapper" >
+  <resultMap id="BaseResultMap" type="bhz.uts.entity.TradeDetail" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="SERIALNO" property="serialno" jdbcType="VARCHAR" />
+    <result column="TRADE_DATE" property="tradeDate" jdbcType="TIMESTAMP" />
+    <result column="DEDBIT_AMOUNT" property="dedbitAmount" jdbcType="DECIMAL" />
+    <result column="CREDIT_AMOUNT" property="creditAmount" jdbcType="DECIMAL" />
+    <result column="BUSINESS_TYPE" property="businessType" jdbcType="VARCHAR" />
+    <result column="BALANCE" property="balance" jdbcType="DECIMAL" />
+    <result column="OPP_ACCOUNT_NAME" property="oppAccountName" jdbcType="VARCHAR" />
+    <result column="OPP_ACCOUNT_NO" property="oppAccountNo" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_NAME" property="accountName" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_NO" property="accountNo" jdbcType="VARCHAR" />
+    <result column="DIGEST" property="digest" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="CREATE_BY" property="createBy" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_BY" property="updateBy" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, SERIALNO, TRADE_DATE, DEDBIT_AMOUNT, CREDIT_AMOUNT, BUSINESS_TYPE, BALANCE, OPP_ACCOUNT_NAME, 
+    OPP_ACCOUNT_NO, ACCOUNT_NAME, ACCOUNT_NO, DIGEST, STATUS, CREATE_BY, CREATE_TIME, 
+    UPDATE_BY, UPDATE_TIME
+  </sql>
+  
+  <update id="updateStatusById" >
+  		UPDATE TRADE_DETAIL SET STATUS = 1 WHERE ID = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="queryByNotSync" resultMap="BaseResultMap" >
+  		SELECT * FROM TRADE_DETAIL WHERE STATUS = 0
+  </select>
+
+</mapper>
